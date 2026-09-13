@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ClinicSettingController;
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +22,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::middleware('auth')->group(function () {
+    Route::get('/painel', [DashboardController::class, 'index'])->name('painel.index');
+    Route::resource('pacientes', PatientController::class)->except(['show']);
+    Route::get('/contatos', [ContactController::class, 'index'])->name('contatos.index');
+    Route::patch('/contatos/{contact}/responder', [ContactController::class, 'toggle'])->name('contatos.toggle');
+    Route::get('/configuracoes', [ClinicSettingController::class, 'edit'])->name('configuracoes.edit');
+    Route::put('/configuracoes', [ClinicSettingController::class, 'update'])->name('configuracoes.update');
+    Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
+});
+
+require __DIR__ . '/auth.php';
