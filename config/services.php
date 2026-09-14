@@ -41,4 +41,8 @@ return [
         'webhook_secret' => env('CALCOM_WEBHOOK_SECRET'),
     ],
 
+    'contact_form' => [
+        'token' => env('CONTACT_FORM_TOKEN'),
+    ],
+
 ];
