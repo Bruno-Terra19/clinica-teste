@@ -38,6 +38,7 @@ return [
     'calcom' => [
         'url' => env('CALCOM_API_URL', 'https://api.cal.com/v2'),
         'key' => env('CALCOM_API_KEY'),
+        'webhook_secret' => env('CALCOM_WEBHOOK_SECRET'),
     ],
 
 ];
