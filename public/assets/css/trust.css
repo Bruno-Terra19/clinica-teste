@@ -1,0 +1,43 @@
+/* trust — barra de confiança flutuante, sobrepondo a base da hero, com glows em parallax no fundo */
+.trust-section{position:relative;z-index:3;padding-inline:1.5rem;padding-bottom:4rem}
+.trust-orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0;will-change:transform}
+.trust-orb--one{width:280px;height:280px;background:rgba(228,200,137,.3);top:-30px;right:6%}
+.trust-orb--two{width:200px;height:200px;background:rgba(195,154,87,.16);bottom:-40px;left:10%}
+
+.trust-bar{position:relative;isolation:isolate;max-width:var(--container-lg);margin-inline:auto;margin-top:-64px;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-soft),0 0 0 1px rgba(195,154,87,.08);padding:2.4rem 1.5rem;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
+.trust-bar::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-gold)}
+
+.trust-item{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:.65rem;padding-inline:1rem;border-left:1px solid rgba(195,154,87,.22);transition:transform .3s var(--ease-smooth)}
+.trust-item:first-child{border-left:none}
+.trust-item:hover{transform:translateY(-4px)}
+
+/* ícone circular — brilha e troca de cor no hover, camada em opacity (GPU) */
+.trust-icon{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:var(--radius-pill);background:var(--grad-soft);transition:transform .3s var(--ease-smooth)}
+.trust-icon::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:var(--grad-gold);opacity:0;transition:opacity .3s var(--ease-smooth)}
+.trust-icon i,.trust-icon svg{position:relative;z-index:1;width:20px;height:20px;color:var(--gold-deep);transition:color .3s var(--ease-smooth)}
+.trust-item:hover .trust-icon{transform:scale(1.08)}
+.trust-item:hover .trust-icon::before{opacity:1}
+.trust-item:hover .trust-icon i,.trust-item:hover .trust-icon svg{color:var(--espresso)}
+
+/* estrelas — contorno por padrão, preenchem de dourado no hover; mesma altura do chip de ícone, pra alinhar com os outros itens */
+.trust-stars{height:44px;display:flex;align-items:center;justify-content:center;gap:.15rem}
+.trust-stars i,.trust-stars svg{display:block;width:22px;height:22px;fill:none;stroke:var(--gold-deep);stroke-width:1.6;transform:scale(1);transition:fill .25s var(--ease-smooth),stroke .25s var(--ease-smooth)}
+.trust-item.is-visible .trust-stars i:nth-child(1),.trust-item.is-visible .trust-stars svg:nth-child(1){transition:transform .4s var(--ease-spring) .05s,fill .25s var(--ease-smooth),stroke .25s var(--ease-smooth)}
+.trust-item.is-visible .trust-stars i:nth-child(2),.trust-item.is-visible .trust-stars svg:nth-child(2){transition:transform .4s var(--ease-spring) .12s,fill .25s var(--ease-smooth),stroke .25s var(--ease-smooth)}
+.trust-item.is-visible .trust-stars i:nth-child(3),.trust-item.is-visible .trust-stars svg:nth-child(3){transition:transform .4s var(--ease-spring) .19s,fill .25s var(--ease-smooth),stroke .25s var(--ease-smooth)}
+.trust-item.is-visible .trust-stars i:nth-child(4),.trust-item.is-visible .trust-stars svg:nth-child(4){transition:transform .4s var(--ease-spring) .26s,fill .25s var(--ease-smooth),stroke .25s var(--ease-smooth)}
+.trust-item.is-visible .trust-stars i:nth-child(5),.trust-item.is-visible .trust-stars svg:nth-child(5){transition:transform .4s var(--ease-spring) .33s,fill .25s var(--ease-smooth),stroke .25s var(--ease-smooth)}
+.trust-item.is-visible .trust-stars i,.trust-item.is-visible .trust-stars svg{transform:scale(1)}
+.trust-item:hover .trust-stars i,.trust-item:hover .trust-stars svg{fill:var(--gold);stroke:var(--gold)}
+
+.trust-value{font-family:var(--font-display);font-size:1.4rem;color:var(--espresso);font-weight:600}
+.trust-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--taupe)}
+
+@media (max-width:820px){
+  /* 1fr sozinho não encolhe abaixo do min-content (a fileira de 5 estrelas) — isso deixava a 1ª coluna mais larga que a 2ª e o conteúdo direito vazava pra fora do card */
+  .trust-bar{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 0;margin-top:-40px}
+  .trust-item{border-left:none;border-top:1px solid rgba(195,154,87,.22);padding-top:1.6rem;padding-inline:.5rem;min-width:0}
+  .trust-item:first-child,.trust-item:nth-child(2){border-top:none;padding-top:0}
+  .trust-stars{gap:.1rem}
+  .trust-stars i,.trust-stars svg{width:19px;height:19px}
+}

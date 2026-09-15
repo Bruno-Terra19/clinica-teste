@@ -1,0 +1,49 @@
+/* contact — dobra final de contato: três fotos de atendimento ao fundo, escurecidas por um degradê, com os dois caminhos de contato em destaque */
+.contact{position:relative;overflow:hidden;background:var(--espresso);padding-block:var(--space-section)}
+
+.contact-bg{position:absolute;inset:0;z-index:0;display:flex}
+.contact-bg img{flex:1;width:33.34%;height:100%;object-fit:cover;object-position:center 22%;filter:grayscale(.1) saturate(.9)}
+
+/* fundo em cima das fotos — escurece pra dar legibilidade ao texto, no mesmo tom da abertura (hero) pra fechar o ciclo da página */
+.contact-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(51,34,35,.9) 0%,rgba(74,49,51,.72) 45%,rgba(51,34,35,.94) 100%)}
+
+.contact-inner{position:relative;z-index:2}
+
+/* grid principal — texto de um lado, os dois cards de contato empilhados do outro, mesmo padrão de coluna das dobras about/location */
+.contact-grid{position:relative;display:grid;grid-template-columns:.85fr 1.15fr;gap:4rem;align-items:center}
+
+.contact-eyebrow{color:var(--gold-light);margin-bottom:.8rem}
+.contact-title{font-size:clamp(1.9rem,3.6vw,2.7rem);font-style:italic;color:var(--ivory);line-height:1.15;margin-bottom:1rem}
+.contact-sub{font-size:1rem;line-height:1.75;color:rgba(251,246,240,.82);max-width:400px}
+
+.contact-cards{display:flex;flex-direction:column;gap:1.4rem}
+
+.contact-card{position:relative;display:flex;flex-direction:column;gap:.85rem;background:rgba(251,246,240,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(251,246,240,.18);border-radius:var(--radius);padding:2.2rem;text-align:left}
+.contact-card-icon{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--grad-gold);color:var(--espresso)}
+.contact-card-icon i,.contact-card-icon svg{width:20px;height:20px}
+.contact-card-badge{position:absolute;top:2.2rem;right:2.2rem;font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;color:#8fe8ac;background:rgba(37,211,102,.16);border:1px solid rgba(37,211,102,.4);border-radius:var(--radius-pill);padding:.35rem .8rem}
+.contact-card-title{font-family:var(--font-display);font-style:italic;font-weight:600;font-size:1.4rem;color:var(--ivory)}
+.contact-card-text{font-size:.92rem;line-height:1.65;color:rgba(251,246,240,.75)}
+
+/* whatsapp — variante verde do botão, reforça o canal quando ele aparece nesta dobra */
+.btn--whatsapp{color:var(--white);background:linear-gradient(135deg,#1f8a4c,#25d366);box-shadow:0 8px 30px rgba(37,211,102,.3)}
+
+/* botões dos cards — tamanho natural (igual aos outros botões do site), não esticado até a largura do input */
+.contact-card>.btn,.contact-form>.btn{align-self:flex-start}
+
+.contact-form{display:flex;flex-direction:column;gap:.75rem}
+.contact-form input{width:100%;font:inherit;font-size:.92rem;color:var(--espresso);background:rgba(251,246,240,.94);border:1px solid rgba(251,246,240,.4);border-radius:var(--radius-sm);padding:.8rem 1rem;transition:border-color .2s var(--ease-smooth)}
+.contact-form input::placeholder{color:var(--taupe)}
+.contact-form input:focus{outline:none;border-color:var(--gold)}
+.contact-form-note{font-size:.74rem;color:rgba(251,246,240,.65)}
+.contact-form-note.is-sent{color:var(--gold-light);font-weight:600}
+
+@media (max-width:760px){
+  .contact-grid{grid-template-columns:1fr}
+  .contact-card-badge{position:static;align-self:flex-start}
+}
+
+@media (max-width:600px){
+  .contact{padding-block:5.5rem}
+  .contact-card{padding:1.8rem}
+}

@@ -1,0 +1,16 @@
+/* page-header — banner de abertura das páginas internas (Sobre, Resultados, Onde nos encontrar, Contato) */
+.page-header{position:relative;overflow:hidden;background:var(--cream);padding-block:5rem 4rem;text-align:center}
+.page-header::before{content:"";position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 15% 20%,rgba(228,200,137,.28),transparent 45%),radial-gradient(circle at 85% 85%,rgba(195,154,87,.18),transparent 45%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;max-width:640px;margin-inline:auto}
+.page-header-eyebrow{margin-bottom:.8rem}
+.page-header-title{font-size:clamp(2.1rem,4.6vw,3.4rem);font-style:italic;margin-bottom:1rem;line-height:1.12}
+.page-header-sub{font-size:1rem;line-height:1.75;color:var(--mocha)}
+
+.page-header--dark{background:var(--espresso)}
+.page-header--dark::before{background:radial-gradient(circle at 15% 20%,rgba(228,200,137,.16),transparent 45%),radial-gradient(circle at 85% 85%,rgba(195,154,87,.12),transparent 45%)}
+.page-header--dark .page-header-title{color:var(--ivory)}
+.page-header--dark .page-header-sub{color:rgba(251,246,240,.75)}
+
+@media (max-width:600px){
+  .page-header{padding-block:3.6rem 2.8rem}
+}

@@ -1,0 +1,25 @@
+/* botões — primário, secundário, ghost; base de cor estática + brilho (sheen) que atravessa via transform (GPU) */
+.btn{position:relative;isolation:isolate;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-width:225px;border-radius:var(--radius-pill);padding:.95rem 1.9rem;font-family:var(--font-body);font-size:.86rem;font-weight:600;letter-spacing:.02em;transition:transform .18s var(--ease-smooth)}
+.btn i,.btn svg{width:16px;height:16px;transition:transform .18s var(--ease-smooth)}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover i,.btn:hover svg{transform:translateX(3px)}
+.btn:active{transform:translateY(0) scale(.97);transition:transform .2s var(--ease-spring)}
+
+/* faixa de luz diagonal que atravessa o botão no hover — cor de fundo do primário/secundário é estática, só o brilho se move */
+.btn--primary::before,.btn--secondary::before{content:"";position:absolute;top:-50%;left:0;width:45%;height:200%;z-index:0;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-160%) skewX(-12deg);transition:transform .7s var(--ease-smooth);will-change:transform}
+.btn--primary:hover::before,.btn--secondary:hover::before{transform:translateX(360%) skewX(-12deg)}
+.btn--primary>*,.btn--secondary>*{position:relative;z-index:1}
+
+.btn--primary{color:var(--espresso);background:linear-gradient(135deg,var(--gold-deep),var(--gold-light));box-shadow:var(--shadow-gold)}
+
+.btn--secondary{color:var(--espresso);background:var(--ivory);border:1px solid var(--gold)}
+
+.btn--ghost{background:none;color:var(--cacau);min-width:0;padding-inline:.4rem;justify-content:flex-start}
+.btn--ghost::after{content:"";position:absolute;left:.4rem;right:.4rem;bottom:.35rem;height:1.5px;background:var(--grad-gold);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease-smooth)}
+.btn--ghost:hover{color:var(--gold-deep)}
+.btn--ghost:hover::after{transform:scaleX(1)}
+
+.btn:disabled,.btn.is-disabled{opacity:.45;pointer-events:none;transform:none}
+
+.btn-row{display:flex;flex-wrap:wrap;gap:1rem;align-items:center}
+.btn-state-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;color:var(--taupe);margin-bottom:.6rem;display:block}

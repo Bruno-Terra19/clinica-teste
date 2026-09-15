@@ -1,0 +1,22 @@
+/* animações — sistema de revelação ao rolar + keyframes da marca; só transform/opacity */
+
+@keyframes reveal-line{from{transform:scaleX(0);opacity:0}to{transform:scaleX(1);opacity:1}}
+@keyframes signature-reveal{from{opacity:0;transform:translateY(6px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes float-soft{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse-gold{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.5}}
+
+@media (prefers-reduced-motion: reduce){
+  /* só o motion ambiente/decorativo é suprimido — microinterações de botão continuam respondendo normalmente */
+  .reveal,.reveal-word{transition:opacity .15s linear !important;transform:none !important}
+  .hero-orb,[data-parallax-speed]{transition:none !important;transform:none !important}
+}
+
+/* revelação ao rolar — subida + fade, sem filter (mais barato pra compositor sem GPU dedicada) */
+.reveal{opacity:0;transform:translateY(22px) scale(.99);transition:opacity .7s var(--ease-signature),transform .7s var(--ease-signature);transition-delay:var(--reveal-delay,0ms)}
+.reveal.is-visible{opacity:1;transform:translateY(0) scale(1)}
+
+/* revelação palavra a palavra, usada em títulos de destaque */
+.reveal-word{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .6s var(--ease-signature),transform .6s var(--ease-signature);transition-delay:calc(var(--word-delay,0ms) + (var(--word-index,0) * 55ms))}
+.reveal-word.is-visible{opacity:1;transform:translateY(0)}
+
+.signature-reveal{animation:signature-reveal 1s var(--ease-signature) forwards;animation-delay:.15s;opacity:0}

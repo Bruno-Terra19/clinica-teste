@@ -1,0 +1,11 @@
+/* whatsapp — botão flutuante fixo, visível em qualquer ponto da rolagem */
+.whatsapp-float{position:fixed;right:1.4rem;bottom:1.4rem;z-index:50;display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#1f8a4c,#25d366);box-shadow:0 10px 30px rgba(37,211,102,.45);transition:transform .25s var(--ease-spring);animation:float-soft 3s ease-in-out infinite}
+.whatsapp-float:hover{transform:scale(1.08)}
+.whatsapp-float svg{width:30px;height:30px;fill:var(--white)}
+
+.whatsapp-float-ping{position:absolute;inset:0;border-radius:50%;background:#25d366;opacity:.55;animation:pulse-gold 2.2s ease-out infinite;pointer-events:none}
+
+@media (max-width:600px){
+  .whatsapp-float{width:54px;height:54px;right:1rem;bottom:1rem}
+  .whatsapp-float svg{width:26px;height:26px}
+}

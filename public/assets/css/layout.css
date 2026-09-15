@@ -1,0 +1,11 @@
+/* layout — contêiner e ritmo de seção, base para todas as dobras do site */
+.container{width:100%;max-width:var(--container-xl);margin-inline:auto;padding-inline:1.5rem}
+.container--lg{max-width:var(--container-lg)}
+.container--md{max-width:var(--container-md)}
+
+.reveal-line{position:relative;display:inline-block;margin-top:.6rem}
+.reveal-line::after{content:"";display:block;height:2px;width:64px;background:var(--grad-gold);transform-origin:left;animation:reveal-line 1s var(--ease-signature) forwards;animation-delay:.3s;opacity:0}
+
+.section-head{max-width:640px;margin-inline:auto;text-align:center;margin-bottom:3.5rem}
+.section-head p{margin-top:1rem;font-size:1.05rem;line-height:1.75;color:var(--mocha)}
+.section-title{font-size:clamp(1.9rem,4vw,2.9rem);font-style:italic}
