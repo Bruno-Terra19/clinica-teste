@@ -63,8 +63,8 @@
             <a class="btn btn--primary site-nav-cta"
                 href="https://wa.me/5535997641747?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
                 target="_blank" rel="noopener"><i data-lucide="calendar"></i><span>Agendar</span></a>
-            <button class="site-nav-toggle" data-nav-toggle aria-label="Abrir menu" aria-expanded="false"><i
-                    data-lucide="menu"></i></button>
+            <button class="btn btn--primary site-nav-cta" data-cal-link="bruno-j5eas0"
+                data-cal-config='{"layout":"month_view"}'><i data-lucide="calendar"></i><span>Agendar</span></button>
         </div>
     </header>
     <!-- hero -->
@@ -91,11 +91,9 @@
                     personalizados, que unem ciência e cuidado com a saúde da pele para realçar sua beleza natural sem
                     alterar quem você é.</p>
                 <div class="hero-cta reveal" style="--reveal-delay:260ms">
-                    <a class="btn btn--primary"
-                        href="https://wa.me/5535997641747?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-                        target="_blank" rel="noopener"><i data-lucide="calendar"></i><span>Quero agendar minha
-                            avaliação</span></a>
-                    <span class="hero-credential">CROMG 44906</span>
+                    <button class="btn btn--primary" data-cal-link="bruno-j5eas0"
+                        data-cal-config='{"layout":"month_view"}'><i data-lucide="calendar"></i><span>Quero agendar
+                            minha avaliação</span></button>
                 </div>
             </div>
         </div>
@@ -248,7 +246,8 @@
                 <p class="about-text">Sua abordagem se apoia em dois pilares. O primeiro é a
                     <strong>naturalidade</strong>, realçar a essência de cada rosto, gerenciando o tempo sem apagar
                     identidade. O segundo é a <strong>estética integrada</strong>: procedimentos planejados sob medida,
-                    sempre a favor da saúde da pele, nunca contra ela.</p>
+                    sempre a favor da saúde da pele, nunca contra ela.
+                </p>
                 <p class="about-text">Mais do que um procedimento, o que Caroline entrega é presença: um olhar treinado
                     que entende o que cada rosto pede, e a maturidade de saber, muitas vezes, que menos é mais.</p>
                 <div class="about-credentials">
@@ -407,6 +406,18 @@
                 d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.25.62 4.36 1.7 6.17L4 29l8.02-1.66a12.9 12.9 0 0 0 4 .63h.01c6.62 0 12.02-5.4 12.02-12.02C28.05 8.4 22.65 3 16.02 3Zm0 21.9h-.01a10.03 10.03 0 0 1-5.1-1.4l-.37-.22-3.78.78.8-3.7-.24-.38a9.94 9.94 0 0 1-1.53-5.36c0-5.5 4.48-9.98 9.99-9.98 2.67 0 5.17 1.04 7.06 2.93a9.9 9.9 0 0 1 2.93 7.06c0 5.51-4.48 9.98-9.98 9.98Zm5.47-7.48c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47a8.9 8.9 0 0 1-1.65-2.05c-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.91-2.2-.24-.57-.49-.5-.67-.5-.17 0-.37-.02-.57-.02-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.48.7.3 1.25.48 1.68.62.7.22 1.34.19 1.85.11.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35Z" />
         </svg>
     </a>
+
+    <!-- Cal.com embed popup -->
+    <script type="text/javascript">
+        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+        Cal("init", { origin: "https://cal.com" });
+
+        Cal("ui", {
+            "styles": { "branding": { "brandColor": "#C39A57" } },
+            "hideEventTypeDetails": false,
+            "layout": "month_view"
+        });
+    </script>
 </body>
 
 </html>
