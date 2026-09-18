@@ -59,9 +59,6 @@
                 <button class="site-nav-links-cta" data-cal-link="bruno-j5eas0"
                     data-cal-config='{"layout":"month_view"}'>Agendar avaliação</button>
             </nav>
-            <a class="btn btn--primary site-nav-cta"
-                href="https://wa.me/5535997641747?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
-                target="_blank" rel="noopener"><i data-lucide="calendar"></i><span>Agendar</span></a>
             <button class="btn btn--primary site-nav-cta" data-cal-link="bruno-j5eas0"
                 data-cal-config='{"layout":"month_view"}'><i data-lucide="calendar"></i><span>Agendar</span></button>
         </div>
